@@ -19,8 +19,7 @@ await page.getByTestId('grid-header').locator('use').click();
 	await page.getByText('Все проекты').click();
 	await page.getByRole('link', { name: 'Регистрация' }).click();
 	await locator1.getByRole('button', { name: 'Войти' }).click();
-	await locator1.locator('div').filter({ hasText: 'Mail.ru Почта Облако Одноклассники ВКонтакте Новости Знакомства Все проекты Реги' }).locator('div').nth(4).isVisible();
-		});
+	});
 
 test('Main column', async ({ page }) =>{
 	await page.getByTestId('grid-header').locator('use').click();
