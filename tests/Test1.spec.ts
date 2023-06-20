@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Main Page', () => {
 test('Header', async ({ page }) => {
-	//test.setTimeout(60000);
+await page.getByTestId('grid-header').locator('use').click();
 	let locator1 = page.getByTestId('whiteline');
 	await locator1.getByRole('link', { name: 'Mail.ru' }).click();
 	await locator1.getByRole('link', { name: 'Почта' }).click();
@@ -23,23 +23,22 @@ test('Header', async ({ page }) => {
 		});
 
 test('Main column', async ({ page }) =>{
-	let locator2 = page.frameLocator('iframe').getByText('Поиск Яндекса');
-	let locator3 = page.getByTestId('news-tabs');
-	locator2.isVisible;
-	await page.getByRole('button', { name: 'Найти' }).isVisible();
-	await page.getByRole('button', { name: 'Перейти' }).isVisible();
-	await locator3.getByRole('link', { name: 'Новости.ru' }).isVisible();
-	await locator3.getByRole('link', { name: 'Спецоперация' }).isVisible();
-	await locator3.getByRole('link', { name: 'Москва' }).isVisible();
-	await locator3.getByRole('link', { name: 'Спорт' }).isVisible();
-	await locator3.getByRole('link', { name: 'Леди' }).isVisible();
-	await locator3.getByRole('link', { name: 'Авто' }).isVisible();
-	await locator3.getByRole('link', { name: 'Кино' }).isVisible();
-	await locator3.getByRole('link', { name: 'Hi-Tech' }).isVisible();
-	await locator3.getByRole('link', { name: 'Игры' }).isVisible();
-	await locator3.getByRole('link', { name: 'Дети' }).isVisible();
-	await locator3.getByRole('link', { name: 'Здоровье' }).isVisible();
-	await page.getByTestId('news-more').getByRole('button', { name: 'tabs__dropdown-button' }).isVisible();
+	await page.getByTestId('grid-header').locator('use').click();
+	page.frameLocator('iframe').getByText('Поиск Яндекса').isVisible;
+	page.getByTestId('news-tabs').isVisible;
+  await page.getByTestId('news-tabs-tab-item-main').isVisible();
+  await page.getByTestId('news-tabs-tab-item-ukraine2022').isVisible();
+  await page.getByTestId('news-tabs-tab-item-regional').isVisible();
+  await page.getByTestId('news-tabs-tab-item-sport').isVisible();
+  await page.getByTestId('news-tabs-tab-item-lady').isVisible();
+  await page.getByTestId('news-tabs-tab-item-auto').isVisible();
+  await page.getByTestId('news-tabs-tab-item-cinema').isVisible();
+  await page.getByTestId('news-tabs-tab-item-hitech').isVisible();
+  await page.getByTestId('news-tabs-tab-item-games').isVisible();
+	await page.getByTestId('news-tabs-tab-item-deti').isVisible();
+	await page.getByTestId('news-tabs-tab-item-health').isVisible();
+	await page.getByTestId('news-tabs-tab-item-dom').isVisible();
+	await page.getByTestId('news-tabs-tab-item-pets').isVisible();
 	await page.getByTestId('news-content').isVisible();
 	await page.getByTestId('weather').isVisible();
 	await page.getByTestId('rates').isVisible();
@@ -47,16 +46,17 @@ test('Main column', async ({ page }) =>{
 });
 
 test('Left column and footer', async ({ page }) =>{
-	let locator4 = page.getByTestId('mailbox');
+	await page.getByTestId('grid-header').locator('use').click();
+	let locator2 = page.getByTestId('mailbox');
 	await page.getByTestId('logo-item').getByRole('link', { name: 'Mail.ru' }).isVisible();
-	await locator4.getByRole('link', { name: 'Почта' }).isVisible();
-	await locator4.getByRole('link', { name: 'Облако' }).isVisible();
-	await locator4.getByRole('link', { name: 'Календарь' }).isVisible();
-	await locator4.getByRole('link', { name: 'Задачи' }).isVisible();
-	await locator4.getByRole('link', { name: 'Видеозвонки' }).isVisible();
-	await locator4.getByRole('link', { name: 'Оплата' }).isVisible();
-	await locator4.getByRole('button', { name: 'Войти' }).isVisible();
-	await locator4.getByRole('link', { name: 'Создать почту' }).isVisible();
+	await locator2.getByRole('link', { name: 'Почта' }).isVisible();
+	await locator2.getByRole('link', { name: 'Облако' }).isVisible();
+	await locator2.getByRole('link', { name: 'Календарь' }).isVisible();
+	await locator2.getByRole('link', { name: 'Задачи' }).isVisible();
+	await locator2.getByRole('link', { name: 'Видеозвонки' }).isVisible();
+	await locator2.getByRole('link', { name: 'Оплата' }).isVisible();
+	await locator2.getByRole('button', { name: 'Войти' }).isVisible();
+	await locator2.getByRole('link', { name: 'Создать почту' }).isVisible();
 	await page.getByTestId('horo-item').isVisible();
 	await page.getByRole('link', { name: 'Политика конфиденцильности' }).isVisible();
 	await page.getByRole('link', { name: 'О компании' }).isVisible();
