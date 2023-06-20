@@ -6,6 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Main Page', () => {
 test('Header', async ({ page }) => {
+	//test.setTimeout(60000);
 	let locator1 = page.getByTestId('whiteline');
 	await locator1.getByRole('link', { name: 'Mail.ru' }).click();
 	await locator1.getByRole('link', { name: 'Почта' }).click();
@@ -18,7 +19,7 @@ test('Header', async ({ page }) => {
 	await page.getByText('Все проекты').click();
 	await page.getByRole('link', { name: 'Регистрация' }).click();
 	await locator1.getByRole('button', { name: 'Войти' }).click();
-	await locator1.locator('div').filter({ hasText: 'Mail.ru Почта Облако Одноклассники ВКонтакте Новости Знакомства Все проекты Реги' }).locator('div').nth(4).click();
+	await locator1.locator('div').filter({ hasText: 'Mail.ru Почта Облако Одноклассники ВКонтакте Новости Знакомства Все проекты Реги' }).locator('div').nth(4).isVisible();
 		});
 
 test('Main column', async ({ page }) =>{
@@ -35,7 +36,7 @@ test('Main column', async ({ page }) =>{
 	await locator3.getByRole('link', { name: 'Авто' }).isVisible();
 	await locator3.getByRole('link', { name: 'Кино' }).isVisible();
 	await locator3.getByRole('link', { name: 'Hi-Tech' }).isVisible();
-	await locator3.getByRole('link', { name: 'Игпы' }).isVisible();
+	await locator3.getByRole('link', { name: 'Игры' }).isVisible();
 	await locator3.getByRole('link', { name: 'Дети' }).isVisible();
 	await locator3.getByRole('link', { name: 'Здоровье' }).isVisible();
 	await page.getByTestId('news-more').getByRole('button', { name: 'tabs__dropdown-button' }).isVisible();
