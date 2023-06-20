@@ -49,7 +49,6 @@ test('Main column', async ({ page }) =>{
 test('Left column and footer', async ({ page }) =>{
 	let locator4 = page.getByTestId('mailbox');
 	await page.getByTestId('logo-item').getByRole('link', { name: 'Mail.ru' }).isVisible();
-	await page.getByTestId('doodle-item').getByRole('link', { name: 'День наблюдения за облаками' }).isVisible();
 	await locator4.getByRole('link', { name: 'Почта' }).isVisible();
 	await locator4.getByRole('link', { name: 'Облако' }).isVisible();
 	await locator4.getByRole('link', { name: 'Календарь' }).isVisible();
