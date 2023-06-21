@@ -1,12 +1,16 @@
 import { test, expect } from '@playwright/test';
 
-
+test.use({ 
+  viewport: { width: 1920, height: 1080 },
+});
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://mail.ru/');
 });
 
 test.describe('Main Page', () => {
+	//test.use({ viewport: { width: 1600, height: 1200 } });
+
 test('Header', async ({ page }) => {
 	await page.getByTestId('grid-header').locator('use').click();
 let locator1 = page.getByTestId('whiteline');
