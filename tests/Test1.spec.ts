@@ -1,13 +1,15 @@
 import { test, expect } from '@playwright/test';
 
+
+
 test.beforeEach(async ({ page }) => {
   await page.goto('https://mail.ru/');
 });
 
 test.describe('Main Page', () => {
 test('Header', async ({ page }) => {
-await page.getByTestId('grid-header').locator('use').click();
-	let locator1 = page.getByTestId('whiteline');
+	await page.getByTestId('grid-header').locator('use').click();
+let locator1 = page.getByTestId('whiteline');
 	await locator1.getByRole('link', { name: 'Mail.ru' }).click();
 	await locator1.getByRole('link', { name: 'Почта' }).click();
 	await page.locator('.login-header').isVisible();
