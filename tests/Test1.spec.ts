@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test.use({ 
   viewport: { width: 1920, height: 1080 },
@@ -9,11 +9,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Main Page', () => {
-	//test.use({ viewport: { width: 1600, height: 1200 } });
-
 test('Header', async ({ page }) => {
 	await page.getByTestId('grid-header').locator('use').click();
-let locator1 = page.getByTestId('whiteline');
+	const locator1 = page.getByTestId('whiteline');
 	await locator1.getByRole('link', { name: 'Mail.ru' }).click();
 	await locator1.getByRole('link', { name: 'Почта' }).click();
 	await page.locator('.login-header').isVisible();
@@ -52,7 +50,7 @@ test('Main column', async ({ page }) =>{
 
 test('Left column and footer', async ({ page }) =>{
 	await page.getByTestId('grid-header').locator('use').click();
-	let locator2 = page.getByTestId('mailbox');
+	const locator2 = page.getByTestId('mailbox');
 	await page.getByTestId('logo-item').getByRole('link', { name: 'Mail.ru' }).isVisible();
 	await locator2.getByRole('link', { name: 'Почта' }).isVisible();
 	await locator2.getByRole('link', { name: 'Облако' }).isVisible();
@@ -67,6 +65,4 @@ test('Left column and footer', async ({ page }) =>{
 	await page.getByRole('link', { name: 'О компании' }).isVisible();
 	await page.getByRole('link', { name: '#more_20.svg?sprite ' }).isVisible();
 	});
-
-	console.log('The tests is completed');
 });
