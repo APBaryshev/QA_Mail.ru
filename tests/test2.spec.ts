@@ -20,11 +20,11 @@ test.describe('Email', () => {
 		await page.waitForSelector()
     await formLogin.waitFor({ state: 'visible' });
     expect (await formLogin.isVisible()).toBe(true);
-		await inputFormLogin.fill('misterbinqa');
+		await inputFormLogin.fill('');
 		await page.locator("//span[text()='@mail.ru']").isVisible();
     await btnComeInFormLogin.click();
     await headerFormPassword.waitFor({ state: 'visible' });
-    await formPassword.fill('privetmrbin');
+    await formPassword.fill('');
 		await btnComeIn2.click();
 	
 });
