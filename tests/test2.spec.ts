@@ -1,34 +1,50 @@
 import { test, expect, Page } from '@playwright/test';
 //import {LoginPageAction} from '../actions/loginPageAction';
-
-
-test.describe('Email', () => {
-	test('check open form login and input', async ({ page }) => {
+	
+test('check open form login', async ({ page }) => {
+	//test.setTimeout(80000);
 		const btnComeIn1 = page.getByTestId('mailbox').getByRole('button', { name: 'Войти' });
-    //const formLogin = page.locator("//h3[text()='Войти в аккаунт']");
-		//const formLogin = page.getByRole('heading', { name: 'Войти в аккаунт' });
-    //const inputFormLogin = page.locator("//input[@placeholder='Имя аккаунта']");
-		const inputFormLogin = page.frameLocator('.ag-popup__frame__layout__iframe').getByPlaceholder('Имя аккаунта');
-    //const btnComeInFormLogin = page.locator("//span[text()='Ввести пароль']");
-		const btnComeInFormLogin = page.frameLocator('.ag-popup__frame__layout__iframe').locator('[data-test-id="next-button"]');
-    //const headerFormPassword = page.locator("//h3[text()='Введите пароль']");
-		const headerFormPassword = page.getByRole('heading', { name: 'Введите пароль' });
-		//const formPassword = page.locator("//input[@type='password']");
+ 		const inputFormLogin = page.frameLocator('.ag-popup__frame__layout__iframe').getByPlaceholder('Имя аккаунта');
+    const btnComeInFormLogin = page.frameLocator('.ag-popup__frame__layout__iframe').locator('[data-test-id="next-button"]');
+    const headerFormPassword = page.getByRole('heading', { name: 'Введите пароль' });
 		const formPassword = page.frameLocator('.ag-popup__frame__layout__iframe').getByPlaceholder('Пароль');
 		const btnComeIn2 = page.frameLocator('.ag-popup__frame__layout__iframe').locator('[data-test-id="submit-button"]');
-    
-		await page.goto('https://mail.ru/');
+    await page.goto('https://mail.ru/');
     await btnComeIn1.waitFor({ state: 'visible' });
 		expect (await btnComeIn1.isVisible()).toBe(true);
 		await btnComeIn1.click();
 		await inputFormLogin.click();
 		await inputFormLogin.fill('misterbinqa');
-		//await page.locator("//span[text()='@mail.ru']").isVisible();
-    await btnComeInFormLogin.click();
+		await btnComeInFormLogin.click();
     await formPassword.click();
 		await formPassword.fill('privetmrbin');
 		await btnComeIn2.click();
-		//await page.getByTestId('whiteline-account-exit').click();
-	
-});
+		//await page.waitForTimeout(70000);
+		//await page.goto('https://e.mail.ru/inbox/?app_id_mytracker=58519&authid=lj8w1p4h.7l&back=1%2C1&dwhsplit=s10273.b1ss12743s&from=login%2Cnavi&x-login-auth=1&afterReload=1');
+		//await page.waitForSelector('whiteline');
+		await page.getByTestId('whiteline').getByRole('link', { name: 'Почта 4' }).isVisible();
+		await page.getByTestId('whiteline').getByRole('link', { name: 'Облако' }).isVisible();
+		await page.getByTestId('whiteline').getByRole('link', { name: 'Календарь' }).isVisible();
+		await page.getByTestId('whiteline').getByRole('link', { name: 'Задачи' }).isVisible();
+		await page.getByTestId('whiteline').getByRole('link', { name: 'Контакты' }).isVisible();
+		await page.getByTestId('whiteline').getByText('Все проекты').isVisible();
+		await page.getByTestId('whiteline').getByText('Поиск по почте').isVisible();
+  	await page.getByTestId('whiteline').locator('.ph-marusia').isVisible();
+  	await page.getByTestId('whiteline').getByRole('img', { name: 'misterbinqa@mail.ru' }).isVisible();
+  	//await page.getByTestId('whiteline-account').getByRole('img', { name: 'misterbinqa@mail.ru' }).isVisible();
+  	await page.getByRole('link', { name: 'Написать письмо' }).isVisible();
+  	await page.getByRole('link', { name: 'Входящие' }).isVisible();
+  	await page.getByRole('link', { name: 'Социальные сети' }).isVisible();
+		await page.getByRole('link', { name: 'Рассылки' }).isVisible();
+		await page.getByRole('link', { name: 'Госписьма' }).isVisible();
+		await page.getByRole('link', { name: 'Новости' }).isVisible();
+		await page.getByRole('link', { name: 'Чеки' }).isVisible();
+		await page.getByRole('link', { name: 'Письма себе' }).isVisible();
+		await page.getByRole('link', { name: 'Отправленные' }).isVisible();
+		await page.getByRole('link', { name: 'Черновики' }).isVisible();
+		await page.getByRole('link', { name: 'Спам' }).isVisible();
+		await page.getByRole('link', { name: 'Корзина' }).isVisible();
+  	await page.getByText('Новая папка').isVisible();
+  	await page.locator('#app-canvas').getByText('Выделить все').isVisible();
+  	await page.getByText('Отметить все прочитанными').isVisible();
 });
