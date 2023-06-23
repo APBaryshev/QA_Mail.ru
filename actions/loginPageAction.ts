@@ -29,10 +29,10 @@
 //    await this.btnComeIn1.click();
 //    await this.formLogin.waitFor({ state: 'visible' });
 //    expect (await this.formLogin.isVisible()).toBe(true);
-//    await this.inputFormLogin.fill('misterbinqa')
+//    await this.inputFormLogin.fill('')
 //    await this.btnComeInFormLogin.click()
 //    await this.headerFormPassword.waitFor({ state: 'visible' });
 //    expect (this.headerFormPassword).toContainText(text);
-//		await this.formPassword.fill('privetmrbin');
+//		await this.formPassword.fill('');
 //	  }
 //}
