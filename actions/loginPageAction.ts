@@ -22,17 +22,17 @@
 //    this.page = page;
 //  }
 	
-//	async checkOpenFormPassword(text: string) {
-//    await this.page.goto('https://mail.ru');
-//    await this.btnComeIn1.waitFor({ state: 'visible' });
-//    expect (await this.btnComeIn1.isVisible()).toBe(true);
-//    await this.btnComeIn1.click();
-//    await this.formLogin.waitFor({ state: 'visible' });
-//    expect (await this.formLogin.isVisible()).toBe(true);
-//    await this.inputFormLogin.fill('')
-//    await this.btnComeInFormLogin.click()
-//    await this.headerFormPassword.waitFor({ state: 'visible' });
-//    expect (this.headerFormPassword).toContainText(text);
-//		await this.formPassword.fill('');
-//	  }
+	//async checkOpenFormPassword(text: string) {
+  //  await this.page.goto('https://mail.ru');
+  //  await this.btnComeIn1.waitFor({ state: 'visible' });
+  //  expect (await this.btnComeIn1.isVisible()).toBe(true);
+  //  await this.btnComeIn1.click();
+  //  await this.formLogin.waitFor({ state: 'visible' });
+  //  expect (await this.formLogin.isVisible()).toBe(true);
+  //  await this.inputFormLogin.fill('')
+  //  await this.btnComeInFormLogin.click()
+  //  await this.headerFormPassword.waitFor({ state: 'visible' });
+  //  expect (this.headerFormPassword).toContainText(text);
+	//	await this.formPassword.fill('');
+	//  }
 //}
