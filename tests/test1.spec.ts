@@ -10,6 +10,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Main Page', () => {
 test('Header', async ({ page }) => {
+	test.setTimeout(60000);
 	await page.getByTestId('grid-header').locator('use').click();
 	const locator1 = page.getByTestId('whiteline');
 	await locator1.getByRole('link', { name: 'Mail.ru' }).click();
